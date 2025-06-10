@@ -3,6 +3,7 @@ from pydantic import BaseModel
 import json
 
 from gpt_utils import chat
+from agents.langchain_agent import run_agent
 
 app = FastAPI()
 
@@ -13,6 +14,13 @@ async def index():
 
 class TextRequest(BaseModel):
     text: str
+
+
+@app.post("/agent")
+async def agent(req: TextRequest):
+    """Invoke the LangChain sequential agent."""
+    result = run_agent(req.text)
+    return result
 
 
 @app.post("/summarize")

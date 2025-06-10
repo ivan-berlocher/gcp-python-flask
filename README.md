@@ -20,6 +20,9 @@ This sample project is a minimal FastAPI application that can be deployed with U
    ```
    Then open <http://localhost:8080> in your browser.
 
+The `/agent` endpoint relies on [LangChain](https://python.langchain.com/) and
+requires an OpenAI API key just like the other endpoints.
+
 ## Deployment
 
 The `Procfile` configures Uvicorn for production environments such as Google App Engine:
@@ -38,3 +41,4 @@ Un aperçu de l'architecture et des objectifs du projet est disponible dans [doc
 
 - `POST /summarize` – envoie un texte et reçoit un résumé en deux phrases généré par GPT‑4o-mini.
 - `POST /named-entities` – renvoie les entités nommées détectées sous forme de tableau JSON `{text, label}`.
+- `POST /agent` – exécute un agent LangChain qui combine raisonnement pas à pas et réponse finale.
