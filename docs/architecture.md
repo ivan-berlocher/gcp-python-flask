@@ -58,6 +58,26 @@ F:Collector → Stockage/normalisation → F:Insight → API Gate → F:Assistan
 - Modules préconstruits : DataOps, Analytics, Conversational, Tutor/LMS, Sequential Thinking
 - Workflows spécifiques au domaine : modules F:Core et templates construction
 
+## Developer Studio
+
+Cette interface complète le Workflow Builder avec un véritable IDE en ligne basé sur **Monaco Editor**. Elle permet de coder, tester et publier des tools ou agents directement depuis le navigateur.
+
+### Fonctionnalités principales
+
+- Éditeur Monaco avec coloration syntaxique, autocomplétion (LSP) et linting
+- Arborescence de projet regroupant code, tests unitaires et schémas
+- Exécution dans un sandbox isolé (Docker ou Firecracker) avec affichage des logs
+- Formulaire d'entrée pour tester l'outil et bouton "Run Tests" pour lancer `pytest`
+- Publication d'une nouvelle version via `POST /dev/{id}/publish`
+
+### Endpoints façade
+
+- `GET /dev/project/{id}` / `PUT /dev/project/{id}` – lire ou enregistrer les fichiers du projet
+- `POST /dev/project/{id}/run` – exécuter le code en sandbox
+- WebSocket `/dev/{runId}/logs` – suivre les logs temps réel
+- `POST /dev/{id}/publish` – déployer le tool dans le MCP Server
+- `GET /tools/schema/{name}` – récupérer le JSON Schema pour l'UI
+
 ## 5. Exemple d'exécution
 ```json
 {
