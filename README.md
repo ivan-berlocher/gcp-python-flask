@@ -42,12 +42,16 @@ Un aperçu de l'architecture et des objectifs du projet est disponible dans [doc
 - `POST /summarize` – envoie un texte et reçoit un résumé en deux phrases généré par GPT‑4o-mini.
 - `POST /named-entities` – renvoie les entités nommées détectées sous forme de tableau JSON `{text, label}`.
 - `POST /agent` – exécute un agent LangChain qui combine raisonnement pas à pas et réponse finale.
+  Les deux premières opérations sont également référencées via la route
+  `GET /tools`.
 
 ## Orchestration API
 
 Ces routes permettent de gérer les workflows low-code :
 
-- `GET /tools` – liste des tools disponibles.
+- `GET /tools` – liste des tools disponibles. Les entrées
+  `summarize` et `named-entities` renvoient respectivement vers les
+  routes `POST /summarize` et `POST /named-entities`.
 - `GET /workflows/{id}` – récupère la configuration d'un workflow.
 - `POST /workflows` – crée un nouveau workflow.
 - `POST /workflows/{id}/run` – lance l'exécution.

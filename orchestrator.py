@@ -4,8 +4,14 @@ import asyncio
 router = APIRouter()
 
 # Dummy in-memory stores for example purposes
+# Each tool advertises the POST endpoint that executes it.
 TOOLS = [
-    {"id": "t1", "name": "Sample Tool"},
+    {"id": "summarize", "name": "Summarize text", "endpoint": "/summarize"},
+    {
+        "id": "named-entities",
+        "name": "Extract named entities",
+        "endpoint": "/named-entities",
+    },
 ]
 
 WORKFLOWS = {}
