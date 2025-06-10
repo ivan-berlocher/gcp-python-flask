@@ -3,3 +3,5 @@ fastapi==0.110.0
 
 # https://pypi.org/project/uvicorn/
 uvicorn==0.29.0
+
+openai>=1.0.0
