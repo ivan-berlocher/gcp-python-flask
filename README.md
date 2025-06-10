@@ -52,6 +52,7 @@ Ces routes permettent de gérer les workflows low-code :
 - `GET /tools` – liste des tools disponibles. Les entrées
   `summarize` et `named-entities` renvoient respectivement vers les
   routes `POST /summarize` et `POST /named-entities`.
+- `GET /tools/{id}/schema` – renvoie le JSON Schema associé à un tool.
 - `GET /workflows/{id}` – récupère la configuration d'un workflow.
 - `POST /workflows` – crée un nouveau workflow.
 - `POST /workflows/{id}/run` – lance l'exécution.

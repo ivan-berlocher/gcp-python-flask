@@ -1,4 +1,4 @@
-from fastapi import APIRouter, WebSocket
+from fastapi import APIRouter, WebSocket, HTTPException
 import asyncio
 
 router = APIRouter()
@@ -14,12 +14,42 @@ TOOLS = [
     },
 ]
 
+# Basic JSON Schemas describing the configuration for each tool.
+# These would normally be defined alongside the tool implementation.
+TOOL_SCHEMAS = {
+    "summarize": {
+        "title": "Summarize text",
+        "type": "object",
+        "properties": {
+            "text": {"title": "Text", "type": "string"},
+        },
+        "required": ["text"],
+    },
+    "named-entities": {
+        "title": "Extract named entities",
+        "type": "object",
+        "properties": {
+            "text": {"title": "Text", "type": "string"},
+        },
+        "required": ["text"],
+    },
+}
+
 WORKFLOWS = {}
 
 @router.get("/tools")
 async def list_tools():
     """Return the registered tools."""
     return TOOLS
+
+
+@router.get("/tools/{tool_id}/schema")
+async def get_tool_schema(tool_id: str):
+    """Return the JSON Schema for a tool."""
+    schema = TOOL_SCHEMAS.get(tool_id)
+    if not schema:
+        raise HTTPException(status_code=404, detail="Tool not found")
+    return schema
 
 @router.get("/workflows/{workflow_id}")
 async def get_workflow(workflow_id: str):
