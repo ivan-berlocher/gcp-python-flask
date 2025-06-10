@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 
 export default function TestInputPanel({ schema, onRun }) {
@@ -27,6 +28,7 @@ export default function TestInputPanel({ schema, onRun }) {
         />
         <button type="submit">Run</button>
       </form>
+
     </div>
   );
 }

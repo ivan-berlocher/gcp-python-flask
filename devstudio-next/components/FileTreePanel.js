@@ -1,3 +1,4 @@
+
 export default function FileTreePanel({ tools, onSelect }) {
   return (
     <div style={{ padding: '1rem', borderRight: '1px solid #ccc' }}>
@@ -9,6 +10,7 @@ export default function FileTreePanel({ tools, onSelect }) {
           </li>
         ))}
       </ul>
+
     </div>
   );
 }
