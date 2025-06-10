@@ -72,3 +72,17 @@ async def watch(run_id):
 
 asyncio.run(watch("run-wf1"))
 ```
+
+## Developer Studio UI
+
+The repository includes a small Next.js app under `devstudio-next` that offers
+an interface to the API. Start it locally with:
+
+```bash
+cd devstudio-next
+npm install  # first time only
+npm run dev
+```
+
+The UI lists the available tools, allows you to submit text to them and shows
+the API response in the logs panel.

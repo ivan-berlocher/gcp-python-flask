@@ -10,3 +10,5 @@ venv/
 
 # Others
 .DS_Store
+node_modules/
+devstudio-next/.next/
