@@ -92,8 +92,15 @@ tools n\u00e9cessaires.
 
 | Couche | Technologies recommand\u00e9es |
 | ------ | ---------------------------- |
-| Frontend Low\u2011Code Builder | React, React Flow |
-| API Backend | FastAPI, Uvicorn |
-| Agents | Agno Core Agents ou LangChain |
-| Stockage/M\u00e9moire | Postgres, Redis, pgvector |
-| D\u00e9ploiement | Google App Engine ou Cloud Run |
+| UI graphique | React.js + Next.js |
+| Canvas | React Flow |
+| Design system | Tailwind CSS + shadcn/ui |
+| Formulaires | @rjsf/core |
+| State client | Zustand ou Recoil |
+| Data‑fetching | TanStack Query / SWR |
+| Realtime logs | Socket.IO-client ou WebSocket natif |
+| Backend façade | FastAPI ou NestJS |
+| Agent orchestration | Agno (gRPC/HTTP) ou LangChain |
+| MCP Server | FastAPI + Redis (ou vector store) |
+| Stockage/Mémoire | Postgres, Redis, pgvector |
+| Déploiement | Google App Engine ou Cloud Run |
