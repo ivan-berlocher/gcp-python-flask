@@ -80,3 +80,20 @@ Réponse :
   "timestamp": "2025-06-10T14:30:00Z"
 }
 ```
+
+## Cha\u00eene de traitement
+
+La configuration cr\u00e9\u00e9e dans le **Frontend Low\u2011Code Builder** est envoy\u00e9e vers l'API \
+qui transmet au **MCP Server / Memory**. Ce dernier orchestre l'ex\u00e9cution en \
+s'appuyant sur les **Agno Core Agents ou LangChain Agents** qui pilotent les \
+tools n\u00e9cessaires.
+
+## Pile technologique recommand\u00e9e
+
+| Couche | Technologies recommand\u00e9es |
+| ------ | ---------------------------- |
+| Frontend Low\u2011Code Builder | React, React Flow |
+| API Backend | FastAPI, Uvicorn |
+| Agents | Agno Core Agents ou LangChain |
+| Stockage/M\u00e9moire | Postgres, Redis, pgvector |
+| D\u00e9ploiement | Google App Engine ou Cloud Run |

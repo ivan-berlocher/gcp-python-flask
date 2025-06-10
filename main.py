@@ -4,8 +4,10 @@ import json
 
 from gpt_utils import chat
 from agents.langchain_agent import run_agent
+from orchestrator import router as orchestrator_router
 
 app = FastAPI()
+app.include_router(orchestrator_router)
 
 @app.get("/")
 async def index():

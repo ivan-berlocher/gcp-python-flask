@@ -42,3 +42,28 @@ Un aperçu de l'architecture et des objectifs du projet est disponible dans [doc
 - `POST /summarize` – envoie un texte et reçoit un résumé en deux phrases généré par GPT‑4o-mini.
 - `POST /named-entities` – renvoie les entités nommées détectées sous forme de tableau JSON `{text, label}`.
 - `POST /agent` – exécute un agent LangChain qui combine raisonnement pas à pas et réponse finale.
+
+## Orchestration API
+
+Ces routes permettent de gérer les workflows low-code :
+
+- `GET /tools` – liste des tools disponibles.
+- `GET /workflows/{id}` – récupère la configuration d'un workflow.
+- `POST /workflows` – crée un nouveau workflow.
+- `POST /workflows/{id}/run` – lance l'exécution.
+- WebSocket `ws://host/ws/workflows/{runId}/events` – flux en temps réel des logs de la run.
+
+Un client WebSocket peut recevoir les logs ainsi :
+
+```python
+import websockets
+import asyncio
+
+async def watch(run_id):
+    uri = f"ws://localhost:8080/ws/workflows/{run_id}/events"
+    async with websockets.connect(uri) as ws:
+        async for line in ws:
+            print(line)
+
+asyncio.run(watch("run-wf1"))
+```
