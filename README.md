@@ -9,7 +9,12 @@ This sample project is a minimal FastAPI application that can be deployed with U
    pip install -r requirements.txt
    ```
 
-2. Run the app locally:
+2. Configure your OpenAI API key:
+   ```bash
+   export OPENAI_API_KEY="sk-..."
+   ```
+
+3. Run the app locally:
    ```bash
    uvicorn main:app --reload
    ```
@@ -28,3 +33,8 @@ Deploy using your preferred method (e.g., `gcloud app deploy`).
 ## F:Core Platform Documentation
 
 Un aperçu de l'architecture et des objectifs du projet est disponible dans [docs/architecture.md](docs/architecture.md).
+
+## API Endpoints
+
+- `POST /summarize` – envoie un texte et reçoit un résumé en deux phrases généré par GPT‑4o-mini.
+- `POST /named-entities` – renvoie les entités nommées détectées sous forme de tableau JSON `{text, label}`.
