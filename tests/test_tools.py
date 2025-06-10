@@ -11,3 +11,11 @@ def test_list_tools_includes_registered_entries():
     ids = {tool["id"] for tool in tools}
     assert {"summarize", "named-entities"} <= ids
 
+
+@pytest.mark.parametrize("tool_id", ["summarize", "named-entities"])
+def test_tool_schema_endpoint(tool_id):
+    response = client.get(f"/tools/{tool_id}/schema")
+    assert response.status_code == 200
+    schema = response.json()
+    assert schema["type"] == "object"
+
