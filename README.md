@@ -7,6 +7,8 @@ This sample project is a minimal FastAPI application that can be deployed with U
 1. Install dependencies:
    ```bash
    pip install -r requirements.txt
+   # Required for NER
+   python -m spacy download en_core_web_sm
    ```
 
 2. Run the app locally:
@@ -24,6 +26,16 @@ web: uvicorn main:app --host 0.0.0.0 --port $PORT
 ```
 
 Deploy using your preferred method (e.g., `gcloud app deploy`).
+
+## API Endpoints
+
+- `GET /context` : récupère le contexte stocké en mémoire.
+- `POST /context` : met à jour le contexte pour un `userId` donné.
+- `POST /summary` : renvoie un résumé court du texte fourni (premières phrases).
+- `POST /ner` : extrait les entités nommées du texte via spaCy.
+
+Ces endpoints illustrent la mise en place d'un **MCP server** et de quelques
+tools du module **F:Insight** (résumé et NER).
 
 ## F:Core Platform Documentation
 
